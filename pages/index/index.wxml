@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <!-- <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
+    </block>
+  </view>
+  <view class="contract">
+    <view wx:if="{{isNew==true}}">
+        <view class="center">请审核！</view>
+        <text class="line">制作日期：{{date}}</text>
+        <text class="line">合同名称：{{contract_name}}</text>
+        <text class="line">合同编号：{{contract_num}}</text>
+        <text class="line">甲方：{{contract_a}}</text>
+        <text class="line">乙方：{{contract_b}}</text>
+        <text class="line">乙方资质：{{contract_b_qualification}}</text>
+        <text class="line">合同金额：{{contract_amount}}</text>
+        <text class="line">拟定部门：{{department}}</text>
+        <text class="line">租期：{{zuqi}}</text>
+        <text class="line">租金单价(不含物业管理费)：{{unit_price}}</text>
+        <text class="line">付款方式：{{payment_method}}</text>
+        <text class="line">免租期：{{rent_free_period}}</text>
+        <text class="line">装修期：{{decoration_period}}</text>
+        <text class="line">其他内容：{{contract_remark}}</text>
+        <text class="line">拟定人：{{nidingren}}</text>
+        <view class='two_button'>
+          <button class='agree' bindtap='agree'>同意</button>
+          <button class='disagree' bindtap='disagree' >不同意</button>
+        </view>
+        <view  wx:if="{{reason}}">
+        <form bindsubmit="bindFormSubmit">
+          <textarea  auto-height placeholder="请输入拒绝理由" auto-focus='true'  cursor-spacing='200px' value='' name="reason"/>
+          <button class='submit' form-type="submit" >提交</button>
+          </form>
+        </view>
+        
+    </view>
+    <view wx:else="{{isNew==false}}">
+    <text>{{notice}}</text>
+    </view>
+  </view>
+</view>

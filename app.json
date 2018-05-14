@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#8DB6CD",
+    "navigationBarTitleText": "盛世翌豪",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true
+  }
+}
